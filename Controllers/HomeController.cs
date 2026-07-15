@@ -15,7 +15,7 @@ namespace TicoShopCRM.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Clientes");
         }
 
         public IActionResult Privacy()
