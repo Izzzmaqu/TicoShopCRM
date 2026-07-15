@@ -1,0 +1,54 @@
+@model TicoShopCRM.Models.Campana
+
+@{
+    ViewData["Title"] = "Crear Campaña";
+}
+
+<h1>Crear Campaña</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaInicio" class="form-label"></label>
+        <input asp-for="FechaInicio" class="form-control" type="date" />
+        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaFin" class="form-label"></label>
+        <input asp-for="FechaFin" class="form-control" type="date" />
+        <span asp-validation-for="FechaFin" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Estado" class="form-label"></label>
+        <select asp-for="Estado" class="form-select">
+            <option value="Activa">Activa</option>
+            <option value="Finalizada">Finalizada</option>
+            <option value="Pausada">Pausada</option>
+        </select>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Presupuesto" class="form-label"></label>
+        <input asp-for="Presupuesto" class="form-control" />
+        <span asp-validation-for="Presupuesto" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,31 @@
+@model TicoShopCRM.Models.Campana
+
+@{
+    ViewData["Title"] = "Detalle Campaña";
+}
+
+<h1>Detalle Campaña</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Fecha Inicio</dt>
+        <dd class="col-sm-9">@Model.FechaInicio.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Fecha Fin</dt>
+        <dd class="col-sm-9">@Model.FechaFin.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">@Model.Estado</dd>
+
+        <dt class="col-sm-3">Presupuesto</dt>
+        <dd class="col-sm-9">₡@Model.Presupuesto.ToString("N2")</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
