@@ -25,8 +25,8 @@ namespace TicoShopCRM.Models
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
         [Required]
-        public string Estado { get; set; } = "Activo"; // Activo/Inactivo
+        public string Estado { get; set; } = "Activo";
 
-        public ICollection<Caso> Casos { get; set; }
+        public ICollection<Caso> Casos { get; set; } = new List<Caso>();
     }
 }
