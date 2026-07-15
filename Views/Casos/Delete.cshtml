@@ -1,0 +1,28 @@
+@model TicoShopCRM.Models.Caso
+
+@{
+    ViewData["Title"] = "Eliminar Caso";
+}
+
+<h1>Eliminar Caso</h1>
+
+<h3>¿Seguro que deseas eliminar este caso?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Cliente</dt>
+        <dd class="col-sm-9">@Model.Cliente?.Nombre</dd>
+
+        <dt class="col-sm-3">Título</dt>
+        <dd class="col-sm-9">@Model.Titulo</dd>
+
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">@Model.Estado</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

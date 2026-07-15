@@ -1,0 +1,41 @@
+@model IEnumerable<TicoShopCRM.Models.Caso>
+
+@{
+    ViewData["Title"] = "Casos";
+}
+
+<h1>Casos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nuevo Caso</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Título</th>
+            <th>Estado</th>
+            <th>Fecha Creación</th>
+            <th>Fecha Resolución</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cliente?.Nombre</td>
+                <td>@item.Titulo</td>
+                <td>@item.Estado</td>
+                <td>@item.FechaCreacion.ToString("g")</td>
+                <td>@(item.FechaResolucion?.ToString("g") ?? "Pendiente")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detalle</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
